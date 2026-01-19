@@ -1,2 +1,36 @@
 # Qelys
-live-training LLM → real-time learning(WIP)
+
+> Live-training LLM on **RTX 3050 4GB** (world's first)
+
+## Status
+- [x] Genesis (born on 2025-01-18)
+- [ ] v0.1: Qwen2.5-0.5B inference < 150ms
+- [ ] v0.2: LoRA fine-tuning on 4GB VRAM
+- [ ] v1.0: Manual hot-reload (< 30s)
+- [ ] v2.0: Automatic live update
+
+## Hardware (The Challenge)
+- **GPU**: RTX 3050 4GB (extreme low VRAM)(because I just have it)
+- **RAM**: 16GB DDR4
+- **OS**: Ubuntu 22.04 (WSL2)
+
+## Quick Start
+```bash
+# Clone & install
+git clone https://github.com/jyimu/Qelys.git
+cd Qelys
+pip install -r requirements.txt
+
+# Run Qwen2.5-0.5B with 4-bit quantization
+python chat.py --model Qwen/Qwen2.5-0.5B-Instruct --quantization 4bit
+```
+# Roadmap
+2025 Winter: 0.5B inference in 4GB (baseline)
+2026 Spring: LoRA 1-step training in < 10s
+2027 Summer: Hot-swapping without OOM
+2028 Goal: Paper "Real-Time LLM on 4GB GPUs"
+# Author
+JYIMU(a high school student)
+"Maybe I can't make Quick successfully but I will try my best!."
+# License
+MIT   用
