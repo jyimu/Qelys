@@ -4,7 +4,7 @@
 
 ## Status
 - [x] Genesis (born on 2025-01-18)
-- [ ] v0.1: Qwen2.5-0.5B inference < 150ms
+- [ ] v0.1: Qwen2.5-0.5B inference < 500ms
 - [ ] v0.2: LoRA fine-tuning on 4GB VRAM
 - [ ] v1.0: Manual hot-reload (< 30s)
 - [ ] v2.0: Automatic live update
@@ -12,7 +12,7 @@
 ## Hardware (The Challenge)
 - **GPU**: RTX 3050 4GB (extreme low VRAM)(because I just have it)
 - **RAM**: 16GB DDR4
-- **OS**: Ubuntu 22.04 (WSL2)
+- **OS**: Win10 25H2 (WSL2)
 
 ## Quick Start
 ```bash
@@ -33,4 +33,4 @@ python chat.py --model Qwen/Qwen2.5-0.5B-Instruct --quantization 4bit
 JYIMU(a high school student)
 "Maybe I can't make Quick successfully but I will try my best!."
 # License
-MIT   用
+MIT
