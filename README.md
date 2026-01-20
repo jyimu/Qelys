@@ -33,4 +33,4 @@ python chat.py --model Qwen/Qwen2.5-0.5B-Instruct --quantization 4bit
 JYIMU(a high school student)
 "Maybe I can't make Quick successfully but I will try my best!."
 # License
-MIT   用
+MIT
