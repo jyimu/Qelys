@@ -10,9 +10,9 @@
 - [ ] v2.0: Automatic live update
 
 ## Research Question (v1.0/v2.0)
-**Q**: What is the minimum latency of parameter updates on a 4GB VRAM GPU? and live-training can be true in 4GB VRAM or not?
-**Hypothesis**: >30s due to memory fragmentation and load overhead.  
-**Method**: Measure, not implement.
+- **Q**: What is the minimum latency of parameter updates on a 4GB VRAM GPU? and live-training can be true in 4GB VRAM or not?
+- **Hypothesis**: >30s due to memory fragmentation and load overhead. 
+- **Method**: Measure, not implement.
 
 ## Hardware (The Challenge)
 - **GPU**: RTX 3050 4GB (extreme low VRAM)(because I only have it)
