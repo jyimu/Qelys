@@ -17,7 +17,7 @@
 ## Hardware (The Challenge)
 - **GPU**: RTX 3050 4GB (extreme low VRAM)(because I only have it)
 - **RAM**: 16GB DDR4
-- **OS**: Win10 25H2 (WSL2)
+- **OS**: Win10 25H2
 
 ## Quick Start
 ```bash
