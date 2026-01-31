@@ -9,6 +9,7 @@
 - [ ] v0.2: LoRA fine-tuning on 4GB VRAM
 - [ ] v1.0: Manual hot-reload (< 30s)
 - [ ] v2.0: Automatic live update
+- [ ] v3.0 Start live streaming
 
 ## Research Question (v1.0/v2.0)
 
