@@ -208,6 +208,7 @@ __marimo__/
 
 # Ignore models directory and PAUSE.md
 models/
-PAUSE.md
+PAUSE.ipynb
 stady/
 .vscode/
+wechat/
