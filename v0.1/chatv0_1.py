@@ -35,7 +35,7 @@ def chat():
     )
     thread = Thread(target=model.generate, kwargs=generation_kwargs)
     thread.start()
-    print("AI: ", end="", flush=True)
+    print("Qelys: ", end="", flush=True)
     time_start = time()
     for new_text in streamer:
         print(new_text, end="", flush=True)

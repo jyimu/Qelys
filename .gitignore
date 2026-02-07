@@ -209,3 +209,5 @@ __marimo__/
 # Ignore models directory and PAUSE.md
 models/
 PAUSE.md
+stady/
+.vscode/
