@@ -1,27 +1,49 @@
 # Qelys
 
-> Live-training LLM on **RTX 3050 4GB** (world's first)
+&gt; Live-training LLM on **RTX 3050 4GB** (world's first)
 
 ## Status
 
 - [x] Genesis (born on 2025-01-18)
-- [ ] v0.1: Qwen2.5-0.5B inference < 500ms
-- [ ] v0.2: LoRA fine-tuning on 4GB VRAM
-- [ ] v1.0: Manual hot-reload (< 30s)
-- [ ] v2.0: Automatic live update
-- [ ] v3.0 Start live streaming
+- [x] v0.1: Qwen2.5-0.5B inference &lt; 500ms
+- [ ] v0.2: Sync LoRU training without OOM
+- [ ] v1.0: Async LoRU([AeloRU](https://github.com/jyimu/aeloru)) hot-reload (&lt; 5s)
+- [ ] v2.0: Real-time Hebbian dual-expert
+- [ ] v3.0: Production live streaming
+
+----
 
 ## Research Question (v1.0/v2.0)
 
-- **Q**: What is the minimum latency of parameter updates on a 4GB VRAM GPU? and live-training can be true in 4GB VRAM or not?
-- **Hypothesis**: >30s due to memory fragmentation and load overhead.
-- **Method**: Measure, not implement.
+- **Q**: Can we achieve millisecond-level parameter updates on 4GB VRAM using AsyncLoRU?
+- **Hypothesis**: Yes, by decoupling inference and training with dual-buffer LoRU vectors.
+- **Method**: Implement, measure, iterate.
+
+----
 
 ## Hardware (The Challenge)
 
-- **GPU**: RTX 3050 4GB (extreme low VRAM)(because I only have it)
+- **GPU**: RTX 3050 4GB (extreme low VRAM) — because constraints breed innovation
 - **RAM**: 16GB DDR4
-- **OS**: Win10 25H2
+- **OS**: Win10 25H2 + WSL2
+
+----
+
+## Architecture
+
+```bash
+Qelys (Application Layer)
+↓ uses
+AeloRu (Async Edge Low-Rank Update)
+↓ enables
+Real-time learning on consumer GPUs
+```
+
+- **Base Model**: Qwen2.5-0.5B (4-bit quantized)
+- **Memory Engine**: [AeloRu](https://github.com/jyimu/aeloru) — async LoRU framework
+- **Key Innovation**: Dual-buffer s-vector switching (microsecond latency)
+
+----
 
 ## Quick Start
 
@@ -30,23 +52,24 @@
 git clone https://github.com/jyimu/Qelys.git
 cd Qelys
 pip install -r requirements.txt
-
-# Run Qwen2.5-0.5B with 4-bit quantization
-python chat.py --model Qwen/Qwen2.5-0.5B-Instruct --quantization 4bit
 ```
 
 ## Roadmap
 
-2025 Winter: 0.5B inference in 4GB (baseline)
-2026 Spring: LoRA 1-step training in < 10s
-2027 Summer: Hot-swapping without OOM
-2028 Goal: Paper "Real-Time LLM on 4GB GPUs"
+| Phase       | Goal                        |
+| ----------- | --------------------------- |
+| 2025 Winter | Sync LoRU validation (V0.2) |
+| 2025 Spring | Async dual-buffer (V1.0)    |
+| 2026 Summer | Hebbian real-time (V2.0)    |
+| 2027+       | Production + Paper          |
+
+## Paper Target
+
+- **Title**: AsyncLoRU: Asynchronous Low-Rank Updates for Real-Time Edge Learning
+- **Venue**: NeurIPS/ICML Workshop on Efficient ML
+- **Claim**: First to achieve sub-100ms parameter updates on 4GB consumer GPUs.
+- **Author**: JYimu ([@jyimu](https://github.com/jyimu))
 
 ## Author
 
-JYIMU(a high school student)
-"Maybe I can't make Quick successfully but I will try my best!."
-
-## License
-
-MIT
+jyimu ([@jyimu](https://github.com/jyimu)) - a high school student with a passion for pushing the limits of AI on consumer hardware. Always eager to learn and share knowledge.
